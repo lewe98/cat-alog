@@ -22,7 +22,7 @@ jobs:
         working-directory: cat-alog
 
       - name: Build Website
-        run: npm ci && npm run build
+        run: npm ci && npm run build:prod
         working-directory: cat-alog
 
       - name: Upload via firebase Hosting
