@@ -11,9 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm ci && npm run build
+
+      - name: Set CAT_API_KEY for environment.prod.ts
+        env:
+          CAT_API_KEY: ${{ secrets.CAT_API_KEY }}
+        run: |
+          sed -i "s|CAT_API_KEY|CAT_API_KEY|g" src/environments/environment.prod.ts
         working-directory: cat-alog
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+
+      - name: Build Website
+        run: npm ci && npm run build
+        working-directory: cat-alog
+
+      - name: Upload via firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CAT_ALOG_DE169 }}
