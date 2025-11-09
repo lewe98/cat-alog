@@ -1,0 +1,7 @@
+{
+  "name": "cat-alog",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
