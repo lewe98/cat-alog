@@ -1,0 +1,133 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="this.modalCtrl.dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row class="ion-align-items-stretch">
+      <ion-col size="12" sizeMd="6">
+        <ion-card>
+          <img class="detail-img" [src]="imageUrl || fallbackImage" [alt]="cat?.name || 'Cat'" />
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{cat?.name}}</ion-card-title>
+            <ion-card-subtitle>Origin: {{cat?.origin}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <app-ranking [description]="'affection'" [ranking]="cat?.affection_level" [icon]="'heart'"></app-ranking>
+            <app-ranking [description]="'social needs'" [ranking]="cat?.social_needs" [icon]="'heart'"></app-ranking>
+            @if (cat?.hairless === 1) {
+              <ion-chip class="ion-margin-top">hairless</ion-chip>
+            }
+            @if (cat?.rex === 1) {
+              <ion-chip class="ion-margin-top">rex</ion-chip>
+            }
+            @if (cat?.natural === 1) {
+              <ion-chip class="ion-margin-top">natural</ion-chip>
+            }
+            @if (cat?.short_legs === 1) {
+              <ion-chip class="ion-margin-top">short-legs</ion-chip>
+            }
+            @if (cat?.rare === 1) {
+              <ion-chip class="ion-margin-top">rare</ion-chip>
+            }
+            @if (cat?.hypoallergenic === 1) {
+              <ion-chip class="ion-margin-top">hypoallergenic</ion-chip>
+            }
+            @if (cat?.indoor === 1) {
+              <ion-chip class="ion-margin-top">indoor</ion-chip>
+            }
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <p>
+              {{cat?.description}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" sizeMd="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle><b>Social skills</b></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <app-ranking [description]="'child friendly'" [ranking]="cat?.child_friendly" [icon]="'ice-cream'"></app-ranking>
+            <app-ranking [description]="'stranger friendly'" [ranking]="cat?.stranger_friendly" [icon]="'person'"></app-ranking>
+            <app-ranking [description]="'dog friendly'" [ranking]="cat?.dog_friendly" [icon]="'paw'"></app-ranking>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle><b>Behavoir</b></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Temperament: <i>{{cat?.temperament}}</i>
+            <app-ranking [description]="'intelligence'" [ranking]="cat?.intelligence" [icon]="'bulb'"></app-ranking>
+            <app-ranking [description]="'energy level'" [ranking]="cat?.energy_level" [icon]="'flame'"></app-ranking>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle><b>Physique</b></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p class="icon-with-text"><ion-icon color="primary" name="heart"></ion-icon>  life span: {{cat?.life_span}} years</p>
+            <p class="icon-with-text"><ion-icon color="primary" name="barbell"></ion-icon>  weight: {{cat?.weight?.metric}} kg</p>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeMd="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle><b>Links</b></ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            @if (cat?.wikipedia_url) {
+              <p class="icon-with-text">
+                <ion-icon name="globe"></ion-icon>
+                <a [href]="cat?.wikipedia_url" target="_blank">Wikipedia</a>
+              </p>
+            }
+            @if (cat?.cfa_url) {
+              <p class="icon-with-text">
+                <ion-icon name="book"></ion-icon>
+                <a [href]="cat?.cfa_url" target="_blank">CFA</a>
+              </p>
+            }
+            @if (cat?.vetstreet_url) {
+              <p class="icon-with-text">
+                <ion-icon name="medkit"></ion-icon>
+                <a [href]="cat?.vetstreet_url" target="_blank">Vetstreet</a>
+              </p>
+            }
+            @if (cat?.vcahospitals_url) {
+              <p class="icon-with-text">
+                <ion-icon name="medkit"></ion-icon>
+                <a [href]="cat?.vcahospitals_url" target="_blank">VCA Hospitals</a>
+              </p>
+            }
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

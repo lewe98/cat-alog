@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Cat breeds
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,16 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Cat breeds</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-grid fixed>
+    <ion-row>
+      @for (cat of cats; track cat.id) {
+        <ion-col size="12" sizeSm="6" sizeMd="4" sizeLg="3" sizeXl="3">
+          <app-cat-list-item [cat]="cat"></app-cat-list-item>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
 </ion-content>

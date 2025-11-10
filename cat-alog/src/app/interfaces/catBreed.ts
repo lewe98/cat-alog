@@ -1,0 +1,42 @@
+export interface CatBreed {
+  id: string;
+  name: string;
+  alt_names?: string;
+  origin: string;
+  country_code?: string;
+  country_codes?: string;
+  description: string;
+  temperament: string;
+  life_span: string;
+  weight: {
+    imperial: string;
+    metric: string;
+  };
+  indoor?: number;
+  lap?: number;
+  adaptability?: number;
+  affection_level?: number;
+  child_friendly?: number;
+  dog_friendly?: number;
+  energy_level?: number;
+  grooming?: number;
+  health_issues?: number;
+  intelligence?: number;
+  shedding_level?: number;
+  social_needs?: number;
+  stranger_friendly?: number;
+  vocalisation?: number;
+  experimental?: number;
+  hairless?: number;
+  natural?: number;
+  rare?: number;
+  rex?: number;
+  suppressed_tail?: number;
+  short_legs?: number;
+  hypoallergenic?: number;
+  wikipedia_url?: string;
+  cfa_url?: string;
+  vetstreet_url?: string;
+  vcahospitals_url?: string;
+  reference_image_id?: string;
+}

@@ -1,0 +1,13 @@
+.detail-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.icon-with-text {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}

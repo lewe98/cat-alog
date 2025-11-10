@@ -1,0 +1,26 @@
+<ion-card class="cat-card" (click)="openDetailView()">
+  <img height="100px" alt="Silhouette of mountains" src="{{imgUrl}}" />
+  <ion-card-header>
+    <ion-card-title>{{cat?.name}}</ion-card-title>
+    <ion-card-subtitle>Origin: {{cat?.origin}}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <app-ranking [description]="'affection'" [ranking]="cat?.affection_level" [icon]="'heart'"></app-ranking>
+    <app-ranking [description]="'social needs'" [ranking]="cat?.social_needs" [icon]="'heart'"></app-ranking>
+    @if (cat?.hairless === 1) {
+      <ion-chip class="ion-margin-top">hairless</ion-chip>
+    }
+    @if (cat?.rex === 1) {
+      <ion-chip class="ion-margin-top">rex</ion-chip>
+    }
+    @if (cat?.natural === 1) {
+      <ion-chip class="ion-margin-top">natural</ion-chip>
+    }
+    @if (cat?.short_legs === 1) {
+      <ion-chip class="ion-margin-top">short-legs</ion-chip>
+    }
+    @if (cat?.rare === 1) {
+      <ion-chip class="ion-margin-top">rare</ion-chip>
+    }
+  </ion-card-content>
+</ion-card>

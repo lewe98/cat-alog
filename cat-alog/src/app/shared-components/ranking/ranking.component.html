@@ -1,0 +1,17 @@
+<div>
+  <div class="spacer">
+    <span>{{ description }}</span>
+    <span>
+      @if (ranking) {
+        @for (i of Array.from({ length: ranking || 0 }); track $index) {
+          <ion-icon class="ion-margin-top" color="primary" [name]="icon"></ion-icon>
+        }
+        @for (i of Array.from({ length: 5 - (ranking || 0) }); track $index) {
+          <ion-icon class="ion-margin-top" [name]="icon"></ion-icon>
+        }
+      } @else {
+        no data
+      }
+    </span>
+  </div>
+</div>
