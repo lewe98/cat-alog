@@ -37,7 +37,7 @@ For the selection, weighting and presentation of the most important CatAPI prope
 ---
 
 ## Architecture
-
+* **`.github/workflows`** → .yml for github actions
 * **`src/app/`**
     * **`cat-api-service/`** → API Calls + HttpClient
     * **`interfaces/`** → Typed models (CatBreed)
