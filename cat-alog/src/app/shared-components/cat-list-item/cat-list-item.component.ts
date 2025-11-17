@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {
   IonCard,
   IonCardContent,
@@ -27,12 +27,14 @@ import {RankingComponent} from "../ranking/ranking.component";
   ]
 })
 export class CatListItemComponent  implements OnInit {
+
+  private catApiService = inject(CatApiService)
+  private modalCtrl = inject(ModalController)
+
   @Input() cat?: CatBreed;
   imgUrl = "https://ionicframework.com/docs/img/demos/card-media.png"
 
   constructor(
-    private catApiService: CatApiService,
-    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {

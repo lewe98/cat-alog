@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
@@ -18,11 +18,12 @@ import {InfiniteScrollCustomEvent} from "@ionic/angular";
 })
 export class Tab1Page implements OnInit {
 
+  private catsApiService = inject(CatApiService)
+
   cats: CatBreed[] = []
   displayedCats: CatBreed[] = []
 
   constructor(
-    private catsApiService: CatApiService
   ) {}
 
   ngOnInit() {

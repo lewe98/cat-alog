@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {
   IonButton,
   IonButtons,
@@ -8,8 +8,8 @@ import {
   IonCardTitle, IonChip,
   IonCol,
   IonContent,
-  IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList,
-  IonRow, IonTitle, IonToolbar, ModalController
+  IonGrid, IonHeader, IonIcon,
+  IonRow, IonToolbar, ModalController
 } from "@ionic/angular/standalone";
 import {CatBreed} from "../../interfaces/catBreed";
 import {RankingComponent} from "../ranking/ranking.component";
@@ -37,16 +37,16 @@ import {RankingComponent} from "../ranking/ranking.component";
     IonIcon
   ]
 })
-export class CatDetailViewComponent  implements OnInit {
+export class CatDetailViewComponent {
+
+  protected modalCtrl = inject(ModalController)
+
   @Input() cat?: CatBreed | null;
   @Input() imageUrl?: string;
   fallbackImage = "https://ionicframework.com/docs/img/demos/card-media.png"
 
   constructor(
-    protected modalCtrl: ModalController
   ) { }
-
-  ngOnInit() {}
 
 }
 

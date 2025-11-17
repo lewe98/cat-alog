@@ -12,6 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check linting
+        run: npm run lint
+        working-directory: cat-alog
+
       - name: Set CAT_API_KEY for environment.prod.ts
         env:
           CAT_API_KEY: ${{ secrets.CAT_API_KEY }}

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {IonIcon} from "@ionic/angular/standalone";
 
 @Component({
@@ -9,13 +9,11 @@ import {IonIcon} from "@ionic/angular/standalone";
     IonIcon
   ]
 })
-export class RankingComponent  implements OnInit {
+export class RankingComponent {
   @Input() description?: string
   @Input() ranking?: number
   @Input() icon? = 'star'
   constructor() { }
-
-  ngOnInit() {}
 
   protected readonly Array = Array
 }
