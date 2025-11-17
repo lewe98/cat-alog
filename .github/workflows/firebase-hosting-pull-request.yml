@@ -14,13 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Angular CLI
-        run: npm install -g @angular/cli
-
-      - name: Check linting
-        run: npm run lint
-        working-directory: cat-alog
-
       - name: Set CAT_API_KEY for environment.prod.ts
         env:
           CAT_API_KEY: ${{ secrets.CAT_API_KEY }}
@@ -28,8 +21,16 @@ jobs:
           sed -i "s|CAT_API_KEY|CAT_API_KEY|g" src/environments/environment.prod.ts
         working-directory: cat-alog
 
+      - name: Install dependencies
+        run: npm ci
+        working-directory: cat-alog
+
+      - name: Check linting
+        run: npm run lint
+        working-directory: cat-alog
+
       - name: Build Website
-        run: npm ci && npm run build:prod
+        run: npm run build:prod
         working-directory: cat-alog
 
       - name: Upload via firebase Hosting
