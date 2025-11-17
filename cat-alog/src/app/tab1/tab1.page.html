@@ -14,11 +14,24 @@
   </ion-header>
   <ion-grid fixed>
     <ion-row>
-      @for (cat of cats; track cat.id) {
-        <ion-col size="12" sizeSm="6" sizeMd="4" sizeLg="3" sizeXl="3">
+      @for (cat of displayedCats; track cat.id) {
+        <ion-col size="12" sizeSm="6" sizeMd="4">
           <app-cat-list-item [cat]="cat"></app-cat-list-item>
         </ion-col>
       }
     </ion-row>
   </ion-grid>
+  @if (displayedCats.length < cats.length) {
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)" threshold="100px">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more cats..."
+      ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  } @else {
+    <div class="ion-text-center">
+      <p>All cats loaded!</p>
+    </div>
+  }
+
 </ion-content>

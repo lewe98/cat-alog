@@ -37,11 +37,7 @@ export class CatListItemComponent  implements OnInit {
 
   ngOnInit() {
     if (this.cat?.name) {
-      console.log(this.cat.name);
-      console.log(this.cat.id);
       this.catApiService.getCatImagesById(this.cat?.id).subscribe(res=> {
-        console.log(res);
-        console.log(res[0].url);
         this.imgUrl = res[0].url;
       })
     }
