@@ -5,7 +5,6 @@ import {
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle, IonChip,
-  IonIcon,
   ModalController
 } from "@ionic/angular/standalone";
 import {CatBreed} from "../../interfaces/catBreed";
@@ -24,7 +23,6 @@ import {RankingComponent} from "../ranking/ranking.component";
     IonCardSubtitle,
     IonCardTitle,
     RankingComponent,
-    IonIcon,
     IonChip
   ]
 })
@@ -49,6 +47,11 @@ export class CatListItemComponent  implements OnInit {
     }
   }
 
+  /**
+   * Opens the detailed modal view for the selected cat.
+   * Uses Ionic's ModalController and passes the cat
+   * and its preview image to the modal component.
+   */
   async openDetailView() {
     if (!this.cat) return;
     const modal = await this.modalCtrl.create({
